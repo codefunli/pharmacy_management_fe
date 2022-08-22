@@ -1,36 +1,66 @@
 
 
   <div class="mat-elevation-z8" >
-    <table mat-table [dataSource]="employees" style="width: 100%;">
+    <table mat-table [dataSource]="medicines" style="width: 100%;">
     <!-- ID -->
       <ng-container matColumnDef="ID">
         <th mat-header-cell *matHeaderCellDef> No </th>
-        <td mat-cell *matCellDef="let employee"> {{employee.id}} </td>
+        <td mat-cell *matCellDef="let medicine"> {{medicine.id}} </td>
       </ng-container>
 
-      <!-- First name -->
-      <ng-container matColumnDef="FirstName">
-        <th mat-header-cell *matHeaderCellDef> First Name </th>
-        <td mat-cell *matCellDef="let employee"> {{employee.firstName}} </td>
+      <!-- Medicine name -->
+      <ng-container matColumnDef="MedicineName">
+        <th mat-header-cell *matHeaderCellDef> Tên thuốc </th>
+        <td mat-cell *matCellDef="let medicine"> {{medicine.medicineName}} </td>
       </ng-container>
 
-      <!-- Last name -->
-      <ng-container matColumnDef="LastName">
-        <th mat-header-cell *matHeaderCellDef> Last Name </th>
-        <td mat-cell *matCellDef="let employee"> {{employee.lastName}} </td>
+      <!-- Medicine Company -->
+      <ng-container matColumnDef="MedicineCompany">
+        <th mat-header-cell *matHeaderCellDef> Công ty dược </th>
+        <td mat-cell *matCellDef="let medicine"> {{medicine.medicineCompany}} </td>
       </ng-container>
 
-      <!-- Email -->
-      <ng-container matColumnDef="Email">
-        <th mat-header-cell *matHeaderCellDef> Email </th>
-        <td mat-cell *matCellDef="let employee"> {{employee.emailId}} </td>
+      <!-- Origin -->
+      <ng-container matColumnDef="Origin">
+        <th mat-header-cell *matHeaderCellDef> Xuất xứ </th>
+        <td mat-cell *matCellDef="let medicine"> {{medicine.origin}} </td>
       </ng-container>
 
-      <!-- Email -->
+      <!-- Manufacture Date -->
+      <ng-container matColumnDef="ManufactureDate">
+        <th mat-header-cell *matHeaderCellDef> Ngày sản xuất </th>
+        <td mat-cell *matCellDef="let medicine"> {{medicine.manufactureDate | date:'shortDate'}} </td>
+      </ng-container>
+
+      <!-- Expire Date -->
+      <ng-container matColumnDef="ExpireDate">
+        <th mat-header-cell *matHeaderCellDef> Ngày hết hạn </th>
+        <td mat-cell *matCellDef="let medicine"> {{medicine.expireDate | date:'shortDate'}} </td>
+      </ng-container>
+
+      <!-- Amount -->
+      <ng-container matColumnDef="Amount">
+        <th mat-header-cell *matHeaderCellDef> Số lượng </th>
+        <td mat-cell *matCellDef="let medicine"> {{medicine.amount}} </td>
+      </ng-container>
+
+      <!-- Unit -->
+      <ng-container matColumnDef="Unit">
+        <th mat-header-cell *matHeaderCellDef> Đơn vị </th>
+        <td mat-cell *matCellDef="let medicine"> {{medicine.unit}} </td>
+      </ng-container>
+
+      <!-- Status -->
+      <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef> Tình trạng </th>
+        <td mat-cell *matCellDef="let medicine"> {{medicine.status}} </td>
+      </ng-container>
+
+      <!-- Action -->
       <ng-container matColumnDef="Actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let employee"> 
-            <button mat-icon-button (click)="employeeDetails(employee.id)">
+        <td mat-cell *matCellDef="let medicine"> 
+            <button mat-icon-button (click)="employeeDetails(medicine.id)">
                 <mat-icon>info</mat-icon>
             </button>
         

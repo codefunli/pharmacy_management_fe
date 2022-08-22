@@ -5,10 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './layouts/default/default.module';
+import { ImportStoreComponent } from './modules/import-store/import-store.component';
+import { ExportStoreComponent } from './modules/export-store/export-store.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ImportStoreComponent,
+    ExportStoreComponent
 
   ],
   imports: [

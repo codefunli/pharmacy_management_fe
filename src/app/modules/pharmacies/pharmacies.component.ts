@@ -3,6 +3,7 @@ import { Observable } from "rxjs";
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/model/employee';
 import { PharmaciesService } from '../services/pharmacies.service';
+import { Medicine } from 'src/app/model/medicine';
 
 @Component({
   selector: 'app-pharmacies',
@@ -12,7 +13,8 @@ import { PharmaciesService } from '../services/pharmacies.service';
 export class PharmaciesComponent implements OnInit {
 
   employees!: Observable<Employee[]>;
-  displayedColumns: string[] = ['ID','FirstName', 'LastName', 'Email', 'Actions'];
+  medicines!: Observable<Medicine[]>;
+  displayedColumns: string[] = ['ID','MedicineName', 'MedicineCompany', 'Origin','ManufactureDate','ExpireDate','Amount','Unit','Status', 'Actions'];
 
   constructor(private pharmaciesService: PharmaciesService,
     private router: Router) {}
@@ -22,7 +24,7 @@ export class PharmaciesComponent implements OnInit {
   }
 
   reloadData() {
-    this.employees = this.pharmaciesService.getEmployeesList();
+    this.medicines = this.pharmaciesService.getMedicineList();
   }
 
   deleteEmployee(id: number) {
