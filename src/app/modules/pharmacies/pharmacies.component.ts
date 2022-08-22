@@ -14,7 +14,7 @@ export class PharmaciesComponent implements OnInit {
 
   employees!: Observable<Employee[]>;
   medicines!: Observable<Medicine[]>;
-  displayedColumns: string[] = ['ID','MedicineName', 'MedicineCompany', 'Origin','ManufactureDate','ExpireDate','Amount','Unit','Status', 'Actions'];
+  displayedColumns: string[] = ['ID','MedicineName', 'MedicineCompany', 'Category', 'Origin','ManufactureDate','ExpireDate','Amount','Unit','Status', 'Actions'];
 
   constructor(private pharmaciesService: PharmaciesService,
     private router: Router) {}
