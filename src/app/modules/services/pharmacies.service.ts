@@ -44,4 +44,8 @@ export class PharmaciesService {
     console.log('here')
     return this.http.post(`${this.exportUrl}`, exportMedicine);
   }
+
+  getMedicineExportList(): Observable<any> {
+    return this.http.get(`${this.exportUrl}`);
+  }
 }

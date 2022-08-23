@@ -29,6 +29,7 @@ export class ExportStoreComponent implements OnInit {
       amount: [null, [Validators.required]],
       exportDate: [null, [Validators.required]]
     });
+    this.reloadData();
   }
 
   exportMedicine(form: any) {
@@ -40,6 +41,14 @@ export class ExportStoreComponent implements OnInit {
     }, 
     error => console.log(error));
     console.log(this.medicineExportForm)
+  }
+
+  reloadData() {
+    this.pharmaciesService.getMedicineExportList().subscribe(data => {
+      console.log(data)
+      this.medicinesExportlst = Object.values(data);
+    }, 
+    error => console.log(error));
   }
 
 }
