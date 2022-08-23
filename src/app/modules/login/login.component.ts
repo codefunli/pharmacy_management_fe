@@ -1,38 +1,29 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { filter, Subject, take, takeUntil } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PharmaciesService } from '../services/pharmacies.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
-  public loginValid = true;
-  public username = '';
-  public password = '';
+export class LoginComponent implements OnInit {
+  form: FormGroup = new FormGroup({});
+  flag: boolean = true;
 
-  private _destroySub$ = new Subject<void>();
-  private readonly returnUrl: string;
+  constructor(private fb: FormBuilder,
+    private pharmaciesService: PharmaciesService,
+    private router: Router,) { }
 
-  constructor(
-    private _route: ActivatedRoute,
-    private _router: Router,
-  ) {
-    this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/game';
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      email: [null, [Validators.required]],
+      password: [null, [Validators.required, Validators.minLength(6)]],
+    });
   }
 
-  public ngOnInit(): void {
-    
-  }
-
-  public ngOnDestroy(): void {
-    this._destroySub$.next();
-  }
-
-  public onSubmit(): void {
-    this.loginValid = true;
-
-    this._router.navigateByUrl('/');
+  saveDetails(form: any) {
+    this.router.navigate(['/dashboard']);
   }
 }

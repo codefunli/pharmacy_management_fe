@@ -32,6 +32,10 @@ export class PharmaciesService {
 
   // Pharmacy area
 
+  getReport():Observable<any> {
+    return this.http.get(`${this.baseUrl}/report`);
+  }
+  
   getMedicineList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
@@ -47,5 +51,17 @@ export class PharmaciesService {
 
   getMedicineExportList(): Observable<any> {
     return this.http.get(`${this.exportUrl}`);
+  }
+
+  getMedicine(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
+
+  updateMedicine(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}`, value);
+  }
+
+  deleteMedicine(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 }

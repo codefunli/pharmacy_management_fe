@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import {FloatLabelType} from '@angular/material/form-field';
-import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FloatLabelType } from '@angular/material/form-field';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Medicine } from 'src/app/model/medicine';
 import { PharmaciesService } from '../services/pharmacies.service';
 
 @Component({
-  selector: 'app-import-store',
-  templateUrl: './import-store.component.html',
-  styleUrls: ['./import-store.component.scss']
+  selector: 'app-update-pharmacy',
+  templateUrl: './update-pharmacy.component.html',
+  styleUrls: ['./update-pharmacy.component.scss']
 })
-export class ImportStoreComponent implements OnInit {
+export class UpdatePharmacyComponent implements OnInit {
 
+  id!: number;
   medicine!: Medicine;
   form: FormGroup = new FormGroup({});
   hideRequiredControl = new FormControl(false);
@@ -22,9 +23,16 @@ export class ImportStoreComponent implements OnInit {
   });
   constructor(private fb: FormBuilder,
     private pharmaciesService: PharmaciesService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.medicine = new Medicine();
+    this.id = this.route.snapshot.params['id'];
+    this.pharmaciesService.getMedicine(this.id).subscribe(data => {
+      console.log(data)
+      this.medicine = data;
+    }, error => console.log(error));
     this.form = this.fb.group({
       medicineName: [null, [Validators.required]],
       medicineCompany: [null, [Validators.required]],
@@ -42,9 +50,9 @@ export class ImportStoreComponent implements OnInit {
     return this.floatLabelControl.value || 'auto';
   }
 
-  saveDetails(form: any) {
+  updateMedicine(form: any) {
     this.medicine = this.form.value;
-    this.pharmaciesService.createMedicine(this.medicine).subscribe(data => {
+    this.pharmaciesService.updateMedicine(this.id, this.medicine).subscribe(data => {
       console.log(data)
       this.medicine = new Medicine();
       this.gotoList();
@@ -56,4 +64,5 @@ export class ImportStoreComponent implements OnInit {
   gotoList() {
     this.router.navigate(['/pharmacies']);
   }
+
 }

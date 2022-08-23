@@ -8,13 +8,14 @@ import { LoginComponent } from './modules/login/login.component';
 import { PharmaciesComponent } from './modules/pharmacies/pharmacies.component';
 import { PharmacyComponent } from './modules/pharmacy/pharmacy.component';
 import { PostsComponent } from './modules/posts/posts.component';
+import { UpdatePharmacyComponent } from './modules/update-pharmacy/update-pharmacy.component';
 
 const routes: Routes = [{
   path: '', 
   component: DefaultComponent,
   children: [
   {
-    path: '', 
+    path: 'dashboard', 
     component: DashboardComponent
   },
   {
@@ -25,6 +26,9 @@ const routes: Routes = [{
   },
   { 
     path: 'details/:id', component: PharmacyComponent 
+  },
+  { 
+    path: 'update/:id', component: UpdatePharmacyComponent 
   },
   { 
     path: 'input-store', component: ImportStoreComponent 

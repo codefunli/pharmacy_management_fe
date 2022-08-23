@@ -1,13 +1,13 @@
-<h2 style="text-align:center;">THÔNG TIN CHI TIẾT</h2>
+<h2 style="text-align:center;">CẬP NHẬT THUỐC</h2>
 <mat-divider></mat-divider>
-<div class="example-container read-only">
+<div class="example-container">
     <form [formGroup]="form" (ngSubmit)="updateMedicine(form)">
         <table>
             <tr>
                 <td>
                     <mat-form-field appearance="fill" [floatLabel]="getFloatLabelValue()">
                         <mat-label>Tên thuốc</mat-label>
-                        <input matInput placeholder="Panadol" formControlName="medicineName" [(ngModel)]="medicine.medicineName"  readonly>
+                        <input matInput placeholder="Panadol" formControlName="medicineName" [(ngModel)]="medicine.medicineName">
                     </mat-form-field>
                 </td>
                 <td>
@@ -105,6 +105,9 @@
                         <input matInput placeholder="Còn hạn" formControlName="status" [(ngModel)]="medicine.status">
                     </mat-form-field>
                 </td>
+            </tr>
+            <tr>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Nhập</button>
             </tr>
 
         </table>

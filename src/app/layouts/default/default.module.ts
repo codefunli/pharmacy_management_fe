@@ -28,6 +28,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 
 
 import { MatCardModule } from "@angular/material/card";
+import { UpdatePharmacyComponent } from 'src/app/modules/update-pharmacy/update-pharmacy.component';
+import { PharmacyComponent } from 'src/app/modules/pharmacy/pharmacy.component';
 
 
 @NgModule({
@@ -38,7 +40,10 @@ import { MatCardModule } from "@angular/material/card";
     PharmaciesComponent,    
     ImportStoreComponent,
     ExportStoreComponent,
-    LoginComponent
+    LoginComponent,
+    UpdatePharmacyComponent,
+    PharmacyComponent
+
   ],
   imports: [
     CommonModule,

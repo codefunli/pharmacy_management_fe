@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Employee } from 'src/app/model/employee';
 import { PharmaciesService } from '../services/pharmacies.service';
 import { Medicine } from 'src/app/model/medicine';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 @Component({
   selector: 'app-pharmacies',
@@ -12,6 +14,8 @@ import { Medicine } from 'src/app/model/medicine';
 })
 export class PharmaciesComponent implements OnInit {
 
+  search : String ="";
+  dataSource!: MatTableDataSource<any>;
   employees!: Observable<Employee[]>;
   medicines!: Observable<Medicine[]>;
   displayedColumns: string[] = ['ID','MedicineName', 'MedicineCompany', 'Category', 'Origin','ManufactureDate','ExpireDate','Amount','Unit','Status', 'Actions'];
@@ -25,10 +29,14 @@ export class PharmaciesComponent implements OnInit {
 
   reloadData() {
     this.medicines = this.pharmaciesService.getMedicineList();
+    // Thắng
+    this.pharmaciesService.getMedicineList().subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+   })
   }
 
-  deleteEmployee(id: number) {
-    this.pharmaciesService.deleteEmployee(id)
+  deleteMedicine(id: number) {
+    this.pharmaciesService.deleteMedicine(id)
       .subscribe(
         data => {
           console.log(data);
@@ -37,14 +45,21 @@ export class PharmaciesComponent implements OnInit {
         error => console.log(error));
   }
 
-  employeeDetails(id: number){
+  medicineDetails(id: number){
     this.router.navigate(['details', id]);
   }
 
-  employeeUpdate(id: number){
+  medicineUpdate(id: number){
     this.router.navigate(['update', id]);
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  report(){
+    this.pharmaciesService.getReport().subscribe()
+  }
   
 
 }

@@ -26,7 +26,7 @@ export class ExportStoreComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       medicineId: [null, [Validators.required]],
-      amount: [null, [Validators.required]],
+      amount: [null, [Validators.required, Validators.pattern("^[0-9]+$")]],
       exportDate: [null, [Validators.required]]
     });
     this.reloadData();
