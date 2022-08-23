@@ -1,0 +1,83 @@
+.row {
+  background-image: -webkit-linear-gradient(117deg, rgb(249, 251, 240) 10%, rgb(215, 253, 254) 20%, rgb(167, 222, 253) 40%, rgba(18, 81, 154, 0.75) 100%);
+  background-image: -moz-linear-gradient(117deg, rgb(249, 251, 240) 10%, rgba(215,253,254,1) 20%, rgba(167,222,253,1) 40%, rgba(5, 79, 170, 0.72) 100%);
+  background-image: -ms-linear-gradient(117deg, rgba(249,251,240,1) 10%, rgba(215,253,254,1) 20%, rgba(167,222,253,1) 40%, rgba(7, 65, 135, 0.63) 100%);
+  /*background: rgb(162, 233, 252);*/
+  background: linear-gradient(117deg, rgba(249, 251, 240, 1) 10%, rgba(215, 253, 254, 1) 20%, rgba(167, 222, 253, 1) 40%, rgba(2, 30, 66, 0.68) 100%);
+  background-size: cover;
+  border-radius: 30px;
+  box-shadow: 12px 12px 22px;
+}
+
+.container{
+  height: auto;
+  width: auto;
+  max-width: 800px;
+  justify-items: center;
+}
+.login img {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  height: 100%;
+}
+
+.login h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: 'Lobster', cursive;
+}
+
+.inp {
+  height: 50px;
+  width: 90%;
+  border: none;
+  outline: none;
+  border-radius: 60px;
+  -webkit-box-shadow: 1px 8px 15px 5px rgba(0, 0, 0, 0.89);
+  box-shadow: 1px 8px 15px 5px rgba(0, 0, 0, 0.89);
+}
+
+.btn1 {
+  height: 50px;
+  width: 50%;
+  border: none;
+  outline: none;
+  border-radius: 60px;
+  font-weight: 600;
+  color: white;
+  background: blueviolet;
+}
+
+.btn1:hover {
+  background: #5d15a1;
+  transition: 0.5s;
+}
+
+.fa-facebook {
+  font-size: 2rem;
+  color: darkblue;
+}
+
+.fa-twitter {
+  font-size: 2rem;
+  color: #61A3FF;
+}
+
+.fa-google-plus-square {
+  font-size: 2rem;
+  color: #e8873c;
+}
+
+.check-remember{
+  margin-right: 25%;
+  vertical-align: bottom!important;
+}
+
+.checkbox_a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+

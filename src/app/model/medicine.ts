@@ -1,8 +1,8 @@
 export class Medicine {
     id!: number;
+    firstName!: string;
     medicineName!: string;
     medicineCompany!: string;
-    category!: string;
     origin!: string;
     manufactureDate!: Date;
     expireDate!: Date;

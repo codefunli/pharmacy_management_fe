@@ -1,0 +1,58 @@
+<!--py-5-->
+<div class="login py-5">
+  <div class="container">
+
+    <div class="row g-1">
+      <div class="col-md-5">
+        <img src="../../../assets/img/undraw_medicine_b-1-ol.svg" alt="" class="img-fluid">
+      </div>
+      <div class="col-md-7 text-center py-4">
+<!--        class="animate__animated animate__tada animate__infinite"-->
+        <h1>Đăng Nhập</h1>
+        <form [formGroup]="loginForm">
+
+          <div class="form-row py-3 pt-4">
+
+            <div class="offset-1 col-lg-10">
+              <input type="email" class="inp px-3" placeholder="Tên Đăng Nhập" formControlName="userName">
+            </div>
+          </div>
+          <div class="form-row py-3 pt-4">
+
+            <div class="offset-1 col-lg-10">
+              <input type="password" class="inp px-3" placeholder="Mật khẩu" formControlName="password">
+            </div>
+          </div>
+          <div class="form-row py-3 pt-4">
+            <div class="check-remember offset-1">
+
+              <label for="remember" class="checkbox_a">
+                <input type="checkbox" id="remember"  [checked]="checkBox"
+                       (change)="onSaveUsernameChanged($event)" />
+                <span class="label-text">Nhớ Tài Khoản</span>
+              </label>
+<!--              <label>-->
+<!--                <input type="checkbox" name="check"/> <span class="label-text">Item Two</span>-->
+
+<!--              </label>-->
+            </div>
+          </div>
+          <div class="form-row py-4 pt-4">
+
+            <div class="offset-1 col-lg-10">
+              <button class="btn1" (click)="signIn()">Đăng Nhập</button>
+            </div>
+          </div>
+
+        </form>
+<!--        <p>Đăng Nhập Với</p>-->
+<!--        <span><i class="fab fa-facebook"></i></span>-->
+<!--        <span><i class="fab fa-twitter"></i></span>-->
+<!--        <span><i class="fab fa-google-plus-square"></i></span>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
