@@ -61,6 +61,20 @@ export class PharmacyComponent implements OnInit {
     console.log(this.medicine)
   }
 
+  medicineUpdate(id: number){
+    this.router.navigate(['update', id]);
+  }
+
+  deleteMedicine(id: number) {
+    this.pharmaciesService.deleteMedicine(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          //this.reloadData();
+        },
+        error => console.log(error));
+  }
+
   gotoList() {
     this.router.navigate(['/pharmacies']);
   }

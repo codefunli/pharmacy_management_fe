@@ -10,7 +10,7 @@
 
 
   <h2 style="text-align:center;">THUỐC TRONG KHO</h2>
-  <table mat-table [dataSource]="medicines" style="width: 100%;">
+  <table mat-table [dataSource]="dataSource" style="width: 100%;">
     <!-- ID -->
     <ng-container matColumnDef="ID">
       <th mat-header-cell *matHeaderCellDef> No </th>
@@ -78,12 +78,12 @@
         <button mat-icon-button (click)="medicineDetails(medicine.id)" title="Chi tiết">
           <mat-icon>info</mat-icon>
         </button>
-        <button mat-icon-button (click)="medicineUpdate(medicine.id)" title="Cập nhật">
+        <!-- <button mat-icon-button (click)="medicineUpdate(medicine.id)" title="Cập nhật">
           <mat-icon>update</mat-icon>
         </button>
         <button mat-icon-button (click)="deleteMedicine(medicine.id)" title="Loại bỏ">
           <mat-icon>delete</mat-icon>
-        </button>
+        </button> -->
 
       </td>
     </ng-container>
