@@ -32,6 +32,7 @@ export class ImportStoreComponent implements OnInit {
       origin: [null, [Validators.required]],
       manufactureDate: [null, [Validators.required]],
       expireDate: [null, [Validators.required]],
+      importDate: [null, [Validators.required]],
       amount: [null, [Validators.required,Validators.pattern("^[0-9]+$"), Validators.min(1)]],
       unit: [null, [Validators.required]],
       status: [null, [Validators.required]],
@@ -44,6 +45,7 @@ export class ImportStoreComponent implements OnInit {
 
   saveDetails(form: any) {
     this.medicine = this.form.value;
+    console.log(this.medicine);
     this.pharmaciesService.createMedicine(this.medicine).subscribe(data => {
       console.log(data)
       this.medicine = new Medicine();
@@ -56,4 +58,6 @@ export class ImportStoreComponent implements OnInit {
   gotoList() {
     this.router.navigate(['/pharmacies']);
   }
+
+ 
 }

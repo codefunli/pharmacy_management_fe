@@ -6,6 +6,7 @@ export class Medicine {
     origin!: string;
     manufactureDate!: Date;
     expireDate!: Date;
+    importDate!: Date;
     amount!: number;
     unit!: string;
     status!: string;
