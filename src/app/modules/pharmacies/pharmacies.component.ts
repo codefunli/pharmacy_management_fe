@@ -14,6 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class PharmaciesComponent implements OnInit {
 
+  selected: string ="";
   search : String ="";
   dataSource!: MatTableDataSource<any>;
   employees!: Observable<Employee[]>;
@@ -35,30 +36,37 @@ export class PharmaciesComponent implements OnInit {
    })
   }
 
-  deleteMedicine(id: number) {
-    this.pharmaciesService.deleteMedicine(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-        },
-        error => console.log(error));
-  }
+  
 
   medicineDetails(id: number){
     this.router.navigate(['details', id]);
   }
 
-  medicineUpdate(id: number){
-    this.router.navigate(['update', id]);
-  }
+  
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  report(){
-    this.pharmaciesService.getReport().subscribe()
+  report(selected: string){
+    if(!selected){
+      alert("Please choose a month for report!");
+    } else{
+      console.log(selected);
+
+    this.pharmaciesService.getReport(selected).subscribe(
+      data => {
+        let fileName = data.headers.get("File-Name")!;
+        console.log(fileName);
+        let blob: Blob = data.body as Blob;
+        let a = document.createElement('a');
+        a.download = fileName; 
+        a.href = window.URL.createObjectURL(blob);
+        a.click();
+      }
+    )
+    }
+    
   }
   
 

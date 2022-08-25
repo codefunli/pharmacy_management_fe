@@ -32,8 +32,8 @@ export class PharmaciesService {
 
   // Pharmacy area
 
-  getReport():Observable<any> {
-    return this.http.get(`${this.baseUrl}/report`);
+  getReport(selected: string) {
+    return this.http.get(`${this.baseUrl}/download/${selected}`, {observe: 'response', responseType: 'blob'});
   }
   
   getMedicineList(): Observable<any> {

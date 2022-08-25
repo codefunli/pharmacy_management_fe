@@ -5,7 +5,17 @@
     <input matInput type="text" (keyup)="applyFilter($event)" placeholder="Search Columns" #input>
   </mat-form-field>
   <!-- <button mat-button color="primary" id="report_btn" (click) = "report()" >Create Report</button> -->
-  <a href="http://localhost:8080/pharmacy/api/v1/pharmacies/report">Export</a>
+  <mat-form-field appearance="standard">
+    <mat-label>Select a month</mat-label>
+    <mat-select matNativeControl required [(value)]="selected">
+      <mat-option>None</mat-option>
+      <mat-option value="8">Thang 8</mat-option>
+      <mat-option value="9">Thang 9</mat-option>
+      <mat-option value="10">Thang 10</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!-- <a href="http://localhost:8080/pharmacy/api/v1/pharmacies/report">Export</a> -->
+  <button mat-button color="primary" id="report_btn" (click) = "report(selected)" style="background-color: #3f51b5; color: white; margin-left: 8px;">Create Report</button>
   <mat-divider></mat-divider>
 
 
